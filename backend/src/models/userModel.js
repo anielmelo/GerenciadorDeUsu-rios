@@ -5,6 +5,12 @@ const getAll = async () => {
     return users;
 }
 
+const getUser = async (id) => {
+    const query = 'SELECT * FROM users WHERE id = ?;';
+    const [user] = await connection.execute(query, [id]);
+    return user;
+}
+
 const createUser = async (user) => {
     const { name, email, number_cellphone, birth_date } = user;
     const query = 'INSERT INTO users(name, email, number_cellphone, birth_date) VALUES (?, ?, ? ,?);';
@@ -26,6 +32,7 @@ const deleteUser = async (id) => {
 
 module.exports = {
     getAll,
+    getUser,
     createUser,
     updateUser,
     deleteUser

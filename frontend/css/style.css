@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+}
+
+button {
+    margin-left: 5px;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.edit-button {
+    background-color: rgb(253, 253, 118);
+}
+
+.delete-button {
+    background-color: rgb(253, 81, 81);
+}
+
+.create-button, .update-button {
+    background-color: rgb(136, 65, 202);
+    border-radius: 0%;
+    width: 120px;
+    height: 40px;
+}
+
+.menu {
+    background-color: rgb(191, 119, 224);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid black;
+}
+
+.menu h1 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.menu button {
+    background-color: rgb(47, 228, 137);
+    width: 8rem;
+    height: 1.5rem;
+    text-transform: uppercase;
+    border-radius: 10px;
+    box-shadow: 5px 5px;
+}
+
+.all-users {
+    padding: 10px 20px 20px;
+    display: flex;
+    width: 40vw;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.all-users .user {
+    background-color: rgb(247, 247, 229);
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 5px 5px;
+}
+
+.user .header {
+    background-color: rgb(47, 228, 137);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+    align-items: center;
+    padding: 8px;
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 2px solid black;
+}
+
+.user .info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.info .nameEmail {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+}
+
+.info .numDate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.info label {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hide-form {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.show-form {
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.header-form button {
+    background-color: rgb(253, 81, 81);
+    width: 30px;
+    height: 30px;
+}
+
+.form-add-user {
+    background-color: rgb(47, 228, 137);
+}
+
+.form-edit-user {
+    background-color: rgb(255, 255, 119);
+}
+
+.form-add-user, .form-edit-user {
+    width: 45vw;
+    padding: 15px 20px 20px 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.form-add-user fieldset:nth-child(2), .form-edit-user fieldset:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.form-add-user fieldset:nth-child(3), .form-edit-user fieldset:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+    border: none;
+}
+
+.form-add-user .field, .form-edit-user .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-add-user input, .form-edit-user input {
+    background-color: rgb(247, 247, 229);
+    border: 2px solid black;
+}
+
+.form-add-user .bottom-form, .form-edit-user .bottom-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+
+#snackbar {
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: rgb(253, 81, 81); 
+    text-align: center; 
+    border: 2px solid black; 
+    border-radius: 10px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%; 
+    bottom: 30px; 
+}
+
+#snackbar.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

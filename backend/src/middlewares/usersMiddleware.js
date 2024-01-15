@@ -54,7 +54,7 @@ const validateCellphone = (request, response, next) => {
         return response.status(400).json({ message: 'Cellphone cannot be empty.' });
     }
 
-    const cellphonePattern = '^\\([1-9]{2}\\)9[0-9]{8}$';
+    const cellphonePattern = '^\\([1-9]{2}\\)9[0-9]{4}-[0-9]{4}$';
     
     if (patternData(cellphonePattern, body.number_cellphone) === false) {
         return response.status(400).json({ message: 'Cellphone invalid.' });
@@ -74,7 +74,7 @@ const validateDate = (request, response, next) => {
         return response.status(400).json({ message: 'Date cannot be empty.' });
     }
     
-    const datePattern = '^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$';
+    const datePattern = '^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\\d\\d$';
     
     if (patternData(datePattern, body.birth_date) === false) {
         return response.status(400).json({ message: 'Date is invalid.' });

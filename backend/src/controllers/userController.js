@@ -5,6 +5,12 @@ const getAll = async (request, response) => {
     return response.status(200).json(users);
 }
 
+const getUser = async (request, response) => {
+    const { id } = request.params;
+    const user = await userModel.getUser(id);
+    return response.status(200).json(user);
+}
+
 const createUser = async (request, response) => {
     const user = request.body;
     const createdUser = await userModel.createUser(user);
@@ -25,6 +31,7 @@ const deleteUser = async (request, response) => {
 
 module.exports = {
     getAll,
+    getUser,
     createUser,
     updateUser,
     deleteUser
